@@ -1,3 +1,161 @@
+// Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+
+// If they are, change the array value to a string of that vowel.
+
+// Return the resulting array.
+function isVow(a){
+  const letters = 'aeiou'
+  const ay = letters.charCodeAt([0])
+  const ee = letters.charCodeAt([1])
+  const iy = letters.charCodeAt([2])
+  const oo = letters.charCodeAt([3])
+  const uu = letters.charCodeAt([4])
+  
+  return a.map( (x) => {
+    if (x === ay){
+      return x = letters[0]
+    }else if (x === ee){
+      return x = letters[1]
+    }else if (x === iy){
+      return x = letters[2]
+    }else if (x === oo){
+      return x = letters[3]
+    }else if (x === uu){
+      return x = letters[4]
+    }else return x
+  })
+}
+
+
+// This is a spin off of my first kata.
+
+// You are given a string containing a sequence of character sequences separated by commas.
+
+// Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
+
+// If the input string is empty or the removal of the first and last items would cause the resulting string to be empty, return an empty value (represented as a generic value NULL in the examples below).
+
+// Examples
+// "1,2,3"      =>  "2"
+// "1,2,3,4"    =>  "2 3"
+// "1,2,3,4,5"  =>  "2 3 4"
+
+// ""     =>  NULL
+// "1"    =>  NULL
+// "1,2"  =>  NULL
+
+function array(arr){
+  let newArr = arr.split(',')
+  if (newArr.length < 3){
+    return null
+  }else {
+    let trash = newArr.pop()
+    let trash2 = newArr.shift()
+    return newArr.join(' ')
+  }
+}
+
+
+// Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+
+// I love you
+// a little
+// a lot
+// passionately
+// madly
+// not at all
+// When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+
+// Your goal in this kata is to determine which phrase the girls would say for a flower of a given number of petals, where nb_petals > 0.
+function howMuchILoveYou(nbPetals) {
+  let num = nbPetals
+  while (num > 6){
+    num -= 6
+  }
+  if ( num === 1){
+    return 'I love you'
+  }else if ( num === 2){
+    return 'a little'
+  }else if ( num === 3){
+    return 'a lot'
+  }else if ( num === 4){
+    return 'passionately'
+  }else if ( num === 5){
+    return 'madly'
+  }else if ( num === 6){
+    return 'not at all'
+  }else return err
+}
+
+
+
+// Given an array of integers.
+
+// Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+// If the input is an empty array or is null, return an empty array.
+
+// Example
+// For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+function countPositivesSumNegatives(input) {
+  if (input === null) {
+    return []
+  }
+  let pos = input.filter( x => x > 0).length
+  let negArr = input.filter( x => x < 0)
+  let neg = negArr.reduce( (acc, c) => acc + c, 0)
+  
+  if (pos === 0 && neg !== 0){
+    return [0, neg]
+  }else if (pos !== 0 && neg === 0){
+    return [pos, 0]
+  }else if(pos === 0 && neg === 0){
+    return []
+  }else return [pos, neg]
+}
+
+
+
+// For every good kata idea there seem to be quite a few bad ones!
+
+// In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+
+function well(x){
+  let good = 0
+  
+  x.forEach( x => x === 'good' ? good ++ : good += 0)
+  
+  if ( good < 1 ){
+    return 'Fail!'
+  }else if (good <= 2){
+    return 'Publish!'
+  }else return 'I smell a series!'
+}
+
+
+
+// Write a function that takes a list of strings as an argument and returns a filtered list containing the same elements but with the 'geese' removed.
+
+// The geese are any strings in the following array, which is pre-populated in your solution:
+
+//   ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+// For example, if this array were passed as an argument:
+
+//  ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+// Your function would return the following array:
+
+// ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+// The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
+
+function gooseFilter (birds) {
+  const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  let newArr = birds.filter( (x) => !geese.includes(x))
+  return newArr
+  // return an array containing all of the strings in the input array except those that match strings in geese
+};
+
+
 // Your task is to find the first element of an array that is not consecutive.
 
 // By not consecutive we mean not exactly 1 larger than the previous element of the array.
