@@ -1,3 +1,30 @@
+// You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+
+// Our deck (is preloaded):
+
+// deck = ['2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣','A♣',
+//         '2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦','A♦',
+//         '2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♥',
+//         '2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠','A♠'];
+// ('3♣') -> return 'clubs'
+// ('3♦') -> return 'diamonds'
+// ('3♥') -> return 'hearts'
+// ('3♠') -> return 'spades'
+
+function defineSuit(card) {
+  let suits = '♣♦♥♠'
+  if (card[card.length -1] === suits[0]){
+    return 'clubs'
+  }else if (card[card.length -1] === suits[1]){
+    return 'diamonds'
+  }else if (card[card.length -1] === suits[2]){
+    return 'hearts'
+  }else if (card[card.length -1] === suits[3]){
+    return 'spades'
+  }
+}
+
+
 // write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
 
 // the string should start with a 1.
