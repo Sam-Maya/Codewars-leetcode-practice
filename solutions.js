@@ -13,7 +13,7 @@
 
 function vowelIndices(word){
   let ans = []
-  let vowels = 'aeiou'
+  let vowels = 'aeiouyYAEIOU'
   for ( let i = 0; i <= word.length - 1; i++){
     vowels.includes(word.charAt([i])) ? ans.push(i + 1) : ans = ans
   }
