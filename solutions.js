@@ -1,3 +1,21 @@
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+  let vowelsCount = 0;
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  
+  for (let i = 0; i < str.length; i++){
+    for(let j = 0; j < vowels.length; j++){
+      str.charAt([i]) === vowels[j] ? vowelsCount +=1 : vowelsCount +=0
+    }
+  }
+  return vowelsCount;
+}
+
 // Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
 
 // Your task is to write a function maskify, which changes all but the last four characters into '#'.
