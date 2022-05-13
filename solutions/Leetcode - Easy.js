@@ -1,25 +1,5 @@
-// The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
-
-// F(0) = 0, F(1) = 1
-// F(n) = F(n - 1) + F(n - 2), for n > 1.
-// Given n, calculate F(n).
-
-function fib(n) {
-  if (n === 0){
-      return 0
-  }else if (n === 1){
-      return 1
-  }else if (n === 2){
-      return 1
-  }else if (n > 2){
-      return fib(n-1) + fib (n-2)
-  }
-};
-
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
-
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
 // You can return the answer in any order.
 
 function twoSum(nums, target) {
@@ -31,6 +11,47 @@ function twoSum(nums, target) {
         }
     }
 };
+// or you can use a hashmap
+function twoSum(nums, target) {
+    let map = {}
+    for (let i = 0; i < nums.length; i++){
+        let value = nums[i]
+        let compValuePair = target - value
+        if(map[compValuePair] !== undefined){
+            return ([map[compValuePair], i])
+        }else {
+            map[value] = i
+        }
+    }
+}
+// or you can use a single for loop and if statements
+function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++){
+        if (nums.indexOf(target - nums[i]) !== -1 && i !== nums.indexOf(target - nums[i])){
+            return [i, nums.indexOf(target - nums[i])]
+        }
+    }
+}
+
+
+// The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+
+// F(0) = 0, F(1) = 1
+// F(n) = F(n - 1) + F(n - 2), for n > 1.
+// Given n, calculate F(n).
+
+function fib(n) {
+    if (n === 0){
+        return 0
+    }else if (n === 1){
+        return 1
+    }else if (n === 2){
+        return 1
+    }else if (n > 2){
+        return fib(n-1) + fib (n-2)
+    }
+  };
+
 
 // You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
