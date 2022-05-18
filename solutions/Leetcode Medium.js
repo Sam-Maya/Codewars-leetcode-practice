@@ -86,3 +86,38 @@ var topKFrequent = function(nums, k) {
   return ans
   
 };
+
+
+// Product of Array Except Self
+// Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+// The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+// You must write an algorithm that runs in O(n) time and without using the division operation.
+// Example 1:
+// Input: nums = [1,2,3,4]
+// Output: [24,12,8,6]
+
+// a little messy but works in O(n)
+var productExceptSelf = function(nums) {
+  let prefix = [nums[0]]
+  let postfix = [nums[nums.length-1]]
+  let ans = []
+  let acc = nums[0]
+  for (let i = 1; i < nums.length; i++){
+      acc = acc * nums[i]
+      prefix.push(acc)
+  }
+  acc = nums[nums.length - 1]
+  for (let j = nums.length - 2; j >= 0; j--){
+      acc = acc * nums[j]
+      postfix.unshift(acc)
+  }
+  for(let k = 0; k < nums.length; k++){
+      if (k === 0){
+          ans.push(postfix[k + 1])
+          k++
+      }if ( k === nums.length - 1){
+          ans.push(prefix[nums.length - 2])
+      }else ans.push(prefix[k-1] * postfix[k+1])
+  }
+  return ans
+};
