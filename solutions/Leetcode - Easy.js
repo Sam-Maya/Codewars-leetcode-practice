@@ -148,7 +148,6 @@ var containsDuplicate = function(nums) {
 // Explanation: "amanaplanacanalpanama" is a palindrome.
 
 //solution with no regex
-
 var isPalindrome = function(s) {
     let letters = 'abcdefghijklmnopqrstuvwxyz0123456789'
     let noSpace = s.toLowerCase().split('').filter(x => letters.split('').includes(x))
