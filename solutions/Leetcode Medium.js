@@ -186,3 +186,36 @@ function threeSum(nums){
   }
   return ans
 };
+
+
+// Container With Most Water
+// You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+// Find two lines that together with the x-axis form a container, such that the container contains the most water.
+// Return the maximum amount of water a container can store.
+// Notice that you may not slant the container.
+// Example 1:
+// Input: height = [1,8,6,2,5,4,8,3,7]
+// Output: 49
+// Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+
+// Brute force solution, exceeds leetcode time limit but...it does work
+var maxArea = function(height) {
+  if(height.length === 2){
+      return Math.min(...height) * 1
+  }
+  let max = 0
+  for (let left = 0; left < height.length - 2; left++){
+      if(left !== 0 && height[left] <= height[left-1]) continue;
+      for(let right = height.length - 1; right > left; right--){
+          let current = 0
+          if (height[right] < height[right + 1]) continue;
+          if (height[left] < height[right]){
+              current = height[left] * (right - left)
+          }else if (height[left] > height[right]){
+              current = height[right] * (right - left)
+          }else current = current = height[left] * (right - left)
+          max = Math.max(max, current)
+      }
+  }
+  return max
+};
