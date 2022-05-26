@@ -153,3 +153,27 @@ var isPalindrome = function(s) {
     let noSpace = s.toLowerCase().split('').filter(x => letters.split('').includes(x))
     return noSpace.join('') === noSpace.reverse().join('') ? true : false
 };
+
+// Search Insert Position
+// Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+// Example 1:
+// Input: nums = [1,3,5,6], target = 5
+// Output: 2
+
+var searchInsert = function(nums, target) {
+    for (let i = 0; i < nums.length; i++){
+        if(target === nums[i]){
+            return i;
+            break;
+        }else if(target > nums[nums.length - 1]){
+            return nums.length;
+            break;
+        }else if(target < nums[0]){
+            return 0;
+            break;
+        }else if(target > nums[i] && target < nums[i + 1]){
+            return i + 1;
+            break;
+        }
+    }
+};
