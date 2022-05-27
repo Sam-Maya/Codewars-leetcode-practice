@@ -234,3 +234,30 @@ var maxArea = function(height) {
   }
   return max
 };
+
+// Longest Repeating Character Replacement
+// You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+// Return the length of the longest substring containing the same letter you can get after performing the above operations.
+// Example 1:
+// Input: s = "ABAB", k = 2
+// Output: 4
+// Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+//Sliding window and hash map.
+var characterReplacement = function(s, k) {
+    let map = {};
+    let res = 0;
+    let l = 0
+    for (let r = 0; r < s.length; r++){
+        map[s[r]] === undefined ? map[s[r]] = 1 : map[s[r]] += 1;
+        let currentMax = Math.max(...Object.values(map))
+        let valid = ( r - l + 1) - currentMax;
+        if(valid <= k){
+            res = Math.max(res,r - l + 1)
+        }else if (valid > k){
+            map[s[l]]--;
+            l++;
+        }
+    }
+    return res
+};
