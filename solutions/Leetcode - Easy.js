@@ -11,6 +11,7 @@ function twoSum(nums, target) {
         }
     }
 };
+
 // or you can use a hashmap
 function twoSum(nums, target) {
     let map = {}
